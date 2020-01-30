@@ -26,6 +26,11 @@ class BasePage():
     def is_current_url_valid(self, url):
         return url in self.browser.current_url
 
+
+    def get_basket_total_price(self):
+        return self.browser.find_element_by_css_selector(".basket-mini").text
+
+
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
