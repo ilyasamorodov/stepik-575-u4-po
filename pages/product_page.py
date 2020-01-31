@@ -30,6 +30,13 @@ class ProductPage(BasePage):
     def success_message_contains_product_title(self):
         assert self.get_success_message_text() == self.get_product_title(), "No product title in success add to basket message"
 
+    def has_no_success_message(self):
+        return self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE_TEXT)
+
+
+    def has_disappeared_success_message(self):
+        return self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE_TEXT)
+
 
     def get_success_message_text(self):
         return self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE_TEXT).text
