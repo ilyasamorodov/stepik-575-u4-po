@@ -12,7 +12,7 @@ class LoginPageLocators():
 
 
 class ProductPageLocators():
-    PRODUCT_PROMO_LINK = "?promo=newYear"
+    PRODUCT_PROMO_LINK = "?promo="
     ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
     PRODUCT_TITLE = (By.CSS_SELECTOR, ".product_main h1")
     PRODUCT_PRICE = (By.CSS_SELECTOR, "p.price_color")
