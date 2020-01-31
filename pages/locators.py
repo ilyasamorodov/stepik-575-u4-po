@@ -6,10 +6,6 @@ class BasePageLocators():
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
 
 
-class MainPageLocators():
-    pass
-
-
 class LoginPageLocators():
     LOGIN_URL = "/login"
     LOGIN_FORM = (By.ID, "login_form")
