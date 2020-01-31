@@ -3,7 +3,7 @@ import pytest
 import time
 
 
-@pytest.mark.parametrize('offer_number', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+@pytest.mark.parametrize('offer_number', [0, 1, 2, 3, 4, 5, 6, pytest.param(7, marks=pytest.mark.xfail), 8, 9])
 def test_guest_can_add_product_to_basket(browser, offer_number):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer" + str(offer_number)
     page = ProductPage(browser, link)
