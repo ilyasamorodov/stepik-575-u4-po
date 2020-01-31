@@ -7,6 +7,11 @@ class BasePageLocators():
     BASKET_LINK = (By.CSS_SELECTOR, ".basket-mini a.btn-default")
 
 
+class BasketPageLocators():
+    BASKET_ITEMS = (By.CSS_SELECTOR, ".basket-items .row")
+    BASKET_EMPTY_MESSAGE = (By.CSS_SELECTOR, "#content_inner p")
+
+
 class LoginPageLocators():
     LOGIN_URL = "/login"
     LOGIN_FORM = (By.ID, "login_form")
