@@ -20,13 +20,13 @@ def setup(browser):
 
 
 class TestUserAddToBasketFromProductPage():
+
     def test_user_cant_see_success_message(self, setup, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
         product_page = ProductPage(browser, link)
         product_page.open()
         product_page.should_be_product_page()
         product_page.has_no_success_message()
-
 
     @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, setup, browser):
