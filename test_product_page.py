@@ -2,10 +2,23 @@ import pytest
 import time
 from pages.product_page import ProductPage
 from pages.basket_page import BasketPage
+from pages.login_page import LoginPage
+
+
+@pytest.fixture(scope="function")
+def setup(browser):
+    # register new user for each test
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
+    product_page = ProductPage(browser, link)
+    product_page.open()
+    product_page.go_to_login_page()
+    login_page = LoginPage(browser, browser.current_url)
+    login_page.register_new_user("login", "password")
+    login_page.should_be_authorized_user()
 
 
 class TestUserAddToBasketFromProductPage():
-    def test_user_cant_see_success_message(self, browser):
+    def test_user_cant_see_success_message(self, setup, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
         product_page = ProductPage(browser, link)
         product_page.open()
@@ -13,7 +26,7 @@ class TestUserAddToBasketFromProductPage():
         assert product_page.has_no_success_message(), "Unexpected success message found!"
 
 
-    def test_user_can_add_product_to_basket(self, browser):
+    def test_user_can_add_product_to_basket(self, setup, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
         page = ProductPage(browser, link)
         page.open()
