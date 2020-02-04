@@ -20,5 +20,12 @@ $ pip install --upgrade pip
 $ source ./venv/bin/activate
 $ pip install -r ./requirements.txt
 
+# run only test with need_review mark
+$ pytest -v --tb=line --language=en -m need_review
+
+# run all tests in test_main_page.py
 $ pytest -v --tb=line --language=en test_main_page.py
+
+# run all tests in test_product_page.py
+$ pytest -v --tb=line --language=en test_product_page.py
 ```
