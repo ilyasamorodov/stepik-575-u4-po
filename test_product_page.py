@@ -28,6 +28,7 @@ class TestUserAddToBasketFromProductPage():
         assert product_page.has_no_success_message(), "Unexpected success message found!"
 
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, setup, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
         page = ProductPage(browser, link)
@@ -66,18 +67,18 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.should_be_login_link()
-    assert True
 
 
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
     page.should_be_login_link()
     page.go_to_login_page()
-    assert True
 
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
     product_page = ProductPage(browser, link)
@@ -87,4 +88,14 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket_page = BasketPage(browser, browser.current_url)
     basket_page.has_no_items()
     basket_page.has_empty_basket_message()
-    assert True
+
+
+@pytest.mark.need_review
+def test_guest_can_add_product_to_basket(self, setup, browser):
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
+        page = ProductPage(browser, link)
+        page.open()
+        page.should_be_product_page()
+        page.add_to_basket()
+        page.solve_quiz_and_get_code()
+        page.success_message_contains_product_title()
