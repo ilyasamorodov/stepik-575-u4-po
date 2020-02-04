@@ -9,11 +9,13 @@ from pages.login_page import LoginPage
 def setup(browser):
     # register new user for each test
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
+    email = str(time.time()) + "@fakemail.org"
+    password = email
     product_page = ProductPage(browser, link)
     product_page.open()
     product_page.go_to_login_page()
     login_page = LoginPage(browser, browser.current_url)
-    login_page.register_new_user("login", "password")
+    login_page.register_new_user(email, password)
     login_page.should_be_authorized_user()
 
 
