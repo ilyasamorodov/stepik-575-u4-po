@@ -5,25 +5,24 @@ from pages.basket_page import BasketPage
 from pages.login_page import LoginPage
 
 
-# register new user for each test
-@pytest.fixture(scope="function")
-def setup(browser):
-    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
-    # I use same email and password because there is no need to generate unique pair.
-    # Later it would be better to use faker or smth for such purposes.
-    email = str(time.time()) + "@fakemail.org"
-    password = email
-    product_page = ProductPage(browser, link)
-    product_page.open()
-    product_page.go_to_login_page()
-    login_page = LoginPage(browser, browser.current_url)
-    login_page.register_new_user(email, password)
-    login_page.should_be_authorized_user()
-
-
 class TestUserAddToBasketFromProductPage():
 
-    def test_user_cant_see_success_message(self, setup, browser):
+    # register new user for each test
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
+        # I use same email and password because there is no need to generate unique pair.
+        # Later it would be better to use faker or smth for such purposes.
+        email = str(time.time()) + "@fakemail.org"
+        password = email
+        product_page = ProductPage(browser, link)
+        product_page.open()
+        product_page.go_to_login_page()
+        login_page = LoginPage(browser, browser.current_url)
+        login_page.register_new_user(email, password)
+        login_page.should_be_authorized_user()
+
+    def test_user_cant_see_success_message(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
         product_page = ProductPage(browser, link)
         product_page.open()
@@ -31,7 +30,7 @@ class TestUserAddToBasketFromProductPage():
         product_page.has_no_success_message()
 
     @pytest.mark.need_review
-    def test_user_can_add_product_to_basket(self, setup, browser):
+    def test_user_can_add_product_to_basket(self, browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
         product_page = ProductPage(browser, link)
         product_page.open()
