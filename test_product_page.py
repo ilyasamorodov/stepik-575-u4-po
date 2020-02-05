@@ -97,9 +97,9 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
 @pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser):
         link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
-        page = ProductPage(browser, link)
-        page.open()
-        page.should_be_product_page()
-        page.add_to_basket()
-        page.solve_quiz_and_get_code()
-        page.success_message_contains_product_title()
+        product_page = ProductPage(browser, link)
+        product_page.open()
+        product_page.should_be_product_page()
+        product_page.add_to_basket()
+        product_page.solve_quiz_and_get_code()
+        product_page.success_message_contains_product_title()
