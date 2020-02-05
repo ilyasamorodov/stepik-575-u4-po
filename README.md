@@ -43,4 +43,7 @@ $ pytest -v --tb=line --language=en test_main_page.py
 
 # run all tests in test_product_page.py
 $ pytest -v --tb=line --language=en test_product_page.py
+
+# run all tests
+$ pytest -v --tb=line --language=en
 ```
