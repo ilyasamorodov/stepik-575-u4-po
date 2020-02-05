@@ -9,6 +9,7 @@ https://stepik.org/lesson/199980/step/6
 - Git
 - Python 3
 - chromedriver installed in PATH
+- geckodriver installed in PATH (optional)
 
 ## Prepare project on Linux/MacOS
 
