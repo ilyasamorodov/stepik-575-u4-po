@@ -1,9 +1,9 @@
 # stepik-575-u4-po
 Stepik course 575, unit 4, PageObject pattern tasks
 
-## Task description
+## Task descriptions
 https://stepik.org/lesson/199980/step/6
-
+https://stepik.org/lesson/201964 step 1 to 14
 
 ## Preconditions
 - Git
