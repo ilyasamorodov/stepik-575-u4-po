@@ -47,3 +47,7 @@ $ pytest -v --tb=line --language=en test_product_page.py
 # run all tests
 $ pytest -v --tb=line --language=en
 ```
+
+### Test run results example
+
+![run_all_tests_result_screenshot](https://user-images.githubusercontent.com/7586160/73799243-72013580-47c6-11ea-828c-e12911da8f8c.png)
