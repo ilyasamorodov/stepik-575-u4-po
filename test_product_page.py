@@ -5,10 +5,12 @@ from pages.basket_page import BasketPage
 from pages.login_page import LoginPage
 
 
+# register new user for each test
 @pytest.fixture(scope="function")
 def setup(browser):
-    # register new user for each test
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
+    # I use same email and password because there is no need to generate unique pair.
+    # Later it would be better to use faker or smth for such purposes.
     email = str(time.time()) + "@fakemail.org"
     password = email
     product_page = ProductPage(browser, link)
