@@ -17,8 +17,8 @@ https://stepik.org/lesson/199980/step/6
 $ git clone https://github.com/ilyasamorodov/stepik-575-u4-po.git
 $ cd stepik-575-u4-po
 $ python -m venv venv
-$ pip install --upgrade pip
 $ source ./venv/bin/activate
+$ pip install --upgrade pip
 $ pip install -r ./requirements.txt
 ```
 
@@ -28,8 +28,8 @@ $ pip install -r ./requirements.txt
 PS: git clone https://github.com/ilyasamorodov/stepik-575-u4-po.git
 PS: cd stepik-575-u4-po
 PS: python -m venv venv
-PS: pip install --upgrade pip
 PS: venv/Scripts/activate
+PS: pip install --upgrade pip
 PS: pip install -r requirements.txt
 ```
 
