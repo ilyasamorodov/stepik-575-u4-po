@@ -6,11 +6,11 @@ https://stepik.org/lesson/199980/step/6
 
 
 ## Preconditions
-
+- Git
 - Python 3
 - chromedriver installed in PATH
 
-## Usage linux/mac
+## Prepare project on Linux/MacOS
 
 ```sh
 $ git clone https://github.com/ilyasamorodov/stepik-575-u4-po.git
@@ -19,8 +19,23 @@ $ python -m venv venv
 $ pip install --upgrade pip
 $ source ./venv/bin/activate
 $ pip install -r ./requirements.txt
+```
 
-# run only test with need_review mark
+## Prepare project on Windows (Powershell)
+
+```sh
+PS: git clone https://github.com/ilyasamorodov/stepik-575-u4-po.git
+PS: cd stepik-575-u4-po
+PS: python -m venv venv
+PS: pip install --upgrade pip
+PS: venv/Scripts/activate
+PS: pip install -r requirements.txt
+```
+
+## Run tests examples
+
+```sh
+# run only tests with need_review mark
 $ pytest -v --tb=line --language=en -m need_review
 
 # run all tests in test_main_page.py
