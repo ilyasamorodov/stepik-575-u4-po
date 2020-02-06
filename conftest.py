@@ -21,12 +21,12 @@ def browser(request):
       firefox_profile = webdriver.FirefoxProfile()
       firefox_profile.set_preference("intl.accept_languages", language)
       browser = webdriver.Firefox(firefox_profile=firefox_profile)
-      print("\nstarting chrome browser...")
+      print("\nstarting firefox browser...")
     else:
       chrome_options = Options()
       chrome_options.add_experimental_option('prefs', {'intl.accept_languages': language})
       browser = webdriver.Chrome(options=chrome_options)
-      print("\nstarting firefox browser...")
+      print("\nstarting chrome browser...")
 
     # setting implicit wait
     browser.implicitly_wait(5)
